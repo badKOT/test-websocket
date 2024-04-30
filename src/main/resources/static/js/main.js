@@ -43,14 +43,19 @@ function onConnect() {
     );
 
     connectingElement.classList.add('hidden')
+    callServer().then(payload => {
+        for (let i = 0; i < payload.length; i++) {
+            onMessageReceived(payload[i], false);
+        }
+    });
 }
 
-function onMessageReceived(payload) {
-    const message = JSON.parse(payload.body);
+function onMessageReceived(payload, removeHeaders = true) {
+    const message = removeHeaders ? JSON.parse(payload.body) : payload;
 
     let messageElement = document.createElement('li');
 
-    if(message.type === 'JOIN') {
+    if (message.type === 'JOIN') {
         messageElement.classList.add('event-message');
         message.content = message.sender + ' joined!';
     } else if (message.type === 'LEAVE') {
@@ -82,6 +87,12 @@ function onMessageReceived(payload) {
     messageArea.scrollTop = messageArea.scrollHeight;
 }
 
+const callServer = async () => {
+    const response = await fetch('http://localhost:8080/start', {
+        method: 'GET',
+    });
+    return await response.json();
+}
 
 function getAvatarColor(messageSender) {
     let hash = 0;
