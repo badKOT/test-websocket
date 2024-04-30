@@ -1,4 +1,4 @@
-package self.project.websocket.config.dto;
+package self.project.websocket.dto;
 
 public enum MessageType {
     CHAT, JOIN, LEAVE

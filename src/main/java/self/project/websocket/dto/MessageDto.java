@@ -1,4 +1,4 @@
-package self.project.websocket.config.dto;
+package self.project.websocket.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @ToString
-public class ChatMessage {
+public class MessageDto {
 
     private String content;
     private String sender;

@@ -7,8 +7,8 @@ import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
-import self.project.websocket.config.dto.ChatMessage;
-import self.project.websocket.config.dto.MessageType;
+import self.project.websocket.dto.MessageDto;
+import self.project.websocket.dto.MessageType;
 
 @Component
 @RequiredArgsConstructor
@@ -23,7 +23,7 @@ public class WebSocketEventListener {
         String username = (String) headerAccessor.getSessionAttributes().get("username");
         if (username != null) {
             log.info("User {} disconnected!", username);
-            var chatMessage = ChatMessage.builder()
+            var chatMessage = MessageDto.builder()
                     .type(MessageType.LEAVE)
                     .sender(username)
                     .build();
