@@ -12,6 +12,7 @@
 
 <div id="username-page">
     <div class="username-page-container">
+
         <h1 class="title">Type your username to enter the Chatroom</h1>
         <form id="usernameForm" name="usernameForm">
             <div class="form-group">
@@ -21,20 +22,29 @@
                 <button type="submit" class="accent username-submit">Start Chatting</button>
             </div>
         </form>
+
+    </div>
+</div>
+
+<div id="home-page" class="hidden">
+    <div id="MainHeader" class="header"></div>
+    <div class="chat-list">
+        <div style="position:relative;"></div>
     </div>
 </div>
 
 <div id="chat-page" class="hidden">
     <div class="chat-container">
+
         <div class="chat-header">
-            <h2>Spring WebSocket Chat Demo</h2>
+            <h2>Spring WebSocket Chat</h2>
         </div>
         <div class="connecting">
             Connecting...
         </div>
         <ul id="messageArea">
-
         </ul>
+
         <form id="messageForm" name="messageForm">
             <div class="form-group">
                 <div class="input-group clearfix">
@@ -43,6 +53,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 </div>
 

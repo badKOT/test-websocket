@@ -20,7 +20,7 @@ public class SecurityConfig {
                 .formLogin(login -> login // TODO() configure
                         .loginPage("/auth/login")
                         .loginProcessingUrl("/process_login")
-                        .defaultSuccessUrl("/auth/hello", true)
+                        .defaultSuccessUrl("/chats", true)
                         .failureUrl("/auth/login?error"))
                 .httpBasic(Customizer.withDefaults()); // TODO() check if needed
         // .authenticationProvider() TODO() configure
